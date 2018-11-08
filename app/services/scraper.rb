@@ -20,12 +20,14 @@ def get_name
 #	  @crypto_name << name
 end
 
+
 def hash
     #@hash_crypto = []
     @hash_crypto = Hash[get_name.zip(get_price)]
 end
 
 def save
+    Crypto.destroy_all
     @hash_crypto.each do |k, v| i = Crypto.create(name: k,price: v)
     end
   end
@@ -33,7 +35,6 @@ def save
 def perform
     puts hash
     puts save
-    return @hash_crypto
 end
 
 end
