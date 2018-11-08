@@ -8,6 +8,7 @@ class CryptosController < ApplicationController
 
   def index
     @cryptos = Crypto.all
+    @cryptos = Crypto.paginate(page: params[:page])
   end
 
   def search
@@ -42,3 +43,4 @@ class CryptosController < ApplicationController
       params.require(:crypto).permit(:name, :price)
     end
 end
+
