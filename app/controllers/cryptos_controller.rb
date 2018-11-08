@@ -2,8 +2,13 @@ class CryptosController < ApplicationController
   before_action :set_crypto, only: [:show, :edit, :update, :destroy]
 
  def scraper
-    Scraper.new.perform
-    redirect_to index_path
+  conn = ActiveRecord::Base.connection
+  tables = ActiveRecord::Base.connection.tables
+  tables.each { |t| conn.execute("TRUNCATE #{t}") }
+
+  Rails.application.load_seed
+  Scraper.new.perform
+  redirect_to index_path
  end
 
   def index
