@@ -3,7 +3,6 @@ class CryptosController < ApplicationController
 
  def scraper
     Scraper.new.perform
-    redirect_to index_path
  end
 
   def index
