@@ -10,7 +10,6 @@ class CryptosController < ApplicationController
     @cryptos = Crypto.all
   end
 
-
   def search
   @crypto = Crypto.find_by(name: params[:crypto][:name])
   end
@@ -18,7 +17,6 @@ class CryptosController < ApplicationController
   def show
   @crypto = Crypto.find(params[:id])
   end
-
 
   def new
     @crypto = Crypto.new

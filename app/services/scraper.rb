@@ -35,6 +35,7 @@ def save
 def perform
     puts hash
     puts save
+    return @hash_crypto
 end
 
 end

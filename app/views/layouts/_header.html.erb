@@ -4,7 +4,7 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Crytpo List", index_path %></li>
-             <li>
+        <li>
               <%= form_for(:crypto, url: search_path) do |f| %>
               <%= f.collection_select :name, Crypto.order(:name), :name, :name, :include_blank => false, class: 'navbarDropdown' %></li>
              <li> <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
