@@ -1,24 +1,36 @@
-# README
+# THP Semaine 6 Jour 4
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Sur Slack GRENOBLE TEAM :
 
-Things you may want to cover:
+* Romain Recher     slack/  @Romain 
+* Samuel Assani     slack/  @Sassani
 
-* Ruby version
+## Lien vers le repo :
 
-* System dependencies
+```
+   $> git clone https://github.com/RomainRec/Cryptonator.git
+```
+              
+## Lien vers le project en production :
 
-* Configuration
+https://cryptonatorr.herokuapp.com/
 
-* Database creation
 
-* Database initialization
+## Etapes d'utilisation :
 
-* How to run the test suite
+Pour pouvoir profiter des gems, n'oublie pas un petit :
+```
+   $> bundle install
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Ensuite : 
+```
+   $> rails db:create
+```
 
-* Deployment instructions
+Enfin : 
+```
+   $> rails db:migrate
+```
 
-* ...
+Merci !!
