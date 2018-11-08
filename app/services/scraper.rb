@@ -4,7 +4,7 @@ require 'open-uri'
 
 class Scraper
 
-#attr_accessor :price, :cryto_name
+attr_accessor :price, :name
 
  def get_price
 	  doc = Nokogiri::HTML(open("https://coinmarketcap.com/all/views/all/"))

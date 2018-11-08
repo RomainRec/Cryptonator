@@ -1,81 +1,38 @@
 class CryptosController < ApplicationController
   before_action :set_crypto, only: [:show, :edit, :update, :destroy]
 
-  def initalize
-
-end
-
  def scraper
+    conn = ActiveRecord::Base.connection
+  tables = ActiveRecord::Base.connection.tables
+  tables.each { |t| conn.execute("TRUNCATE #{t}") }
+  Rails.application.load_seed
     Scraper.new.perform
     redirect_to index_path
  end
 
-
-  def reset_db
-  conn = ActiveRecord::Base.connection
-  tables = ActiveRecord::Base.connection.tables
-  tables.each { |t| conn.execute("TRUNCATE #{t}") }
-
-  Rails.application.load_seed
-  redirect_to index_path
-  end
-  # GET /cryptos
-  # GET /cryptos.json
   def index
     @cryptos = Crypto.all
   end
 
-  # GET /cryptos/1
-  # GET /cryptos/1.json
-  def show
-     @cryptos = Crypto.find(params[:id])
+
+  def search
+  @crypto = Crypto.find_by(name: params[:crypto][:name])
   end
 
-  # GET /cryptos/new
+  def show
+  @crypto = Crypto.find(params[:id])
+  end
+
+
   def new
     @crypto = Crypto.new
   end
 
-  # GET /cryptos/1/edit
-  def edit
-  end
 
-  # POST /cryptos
-  # POST /cryptos.json
-  def create
-    @crypto = Crypto.new(crypto_params)
-
-    respond_to do |format|
-      if @crypto.save
-        format.html { redirect_to @crypto, notice: 'Crypto was successfully created.' }
-        format.json { render :show, status: :created, location: @crypto }
-      else
-        format.html { render :new }
-        format.json { render json: @crypto.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /cryptos/1
-  # PATCH/PUT /cryptos/1.json
-  def update
-    respond_to do |format|
-      if @crypto.update(crypto_params)
-        format.html { redirect_to @crypto, notice: 'Crypto was successfully updated.' }
-        format.json { render :show, status: :ok, location: @crypto }
-      else
-        format.html { render :edit }
-        format.json { render json: @crypto.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /cryptos/1
-  # DELETE /cryptos/1.json
   def destroy
     @crypto.destroy
     respond_to do |format|
-      format.html { redirect_to cryptos_url, notice: 'Crypto was successfully destroyed.' }
+      format.html { redirect_to cryptos_url }
       format.json { head :no_content }
     end
   end

@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Cryptos</h1>
+<h1>Cryptonator</h1>
  <div class="container">
     <div class="row align-items-center">
       <div class="col">
         <%= form_for(:crypto, url: scraper_path) do |f| %>
-              <%= f.submit "Scrapper", class:"btn btn-primary"%>
+              <%= f.submit "Scrap & Update", class:"btn btn-primary"%>
           <% end %>
       </div>
     </div>
@@ -25,14 +25,11 @@
       <tr>
         <td><%= crypto.name %></td>
         <td><%= crypto.price %></td>
-        <td><%= link_to 'Show', crypto %></td>
-        <td><%= link_to 'Edit', edit_crypto_path(crypto) %></td>
-        <td><%= link_to 'Destroy', crypto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Voir', crypto %></td>
+        <td><%= link_to 'Ne pas afficher', crypto, method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Crypto', new_crypto_path %>
