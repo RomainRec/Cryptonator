@@ -33,8 +33,8 @@ end
   end
 
 def perform
-    puts hash
-    puts save
+    hash
+    save
     return @hash_crypto
 end
 
