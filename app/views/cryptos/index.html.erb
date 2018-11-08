@@ -15,9 +15,9 @@
 <table class="thead-light">
   <thead class="thead-light">
     <tr>
-      <th>&nbsp;Name</th>
-      <th>&nbsp;Price</th>
-      <th colspan="3"></th>
+      <th style="font-size: 1.5em">Name</th>
+      <th style="font-size: 1.5em">Price</th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 <br>
@@ -26,8 +26,8 @@
       <tr>
         <td ><%= crypto.name %></td>
         <td><%= crypto.price %>&nbsp;&nbsp;</td>
-        <td class="badge badge-primary"><%= link_to 'Voir', crypto %></td>
-        <td class="badge badge-pill badge-info"><%= link_to 'Ne pas afficher', crypto, method: :delete %></td>
+        <td class="badge badge-primary" style="margin-left: 10em"><%= link_to 'Voir', crypto %></td>
+        <td class="badge badge-pill badge-info" style="margin-left: 4em"><%= link_to 'Ne pas afficher', crypto, method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
