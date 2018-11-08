@@ -26,7 +26,7 @@ def hash
     @hash_crypto = Hash[get_name.zip(get_price)]
 end
 
-def save
+  def save
     Crypto.destroy_all
     @hash_crypto.each do |k, v| i = Crypto.create(name: k,price: v)
     end
